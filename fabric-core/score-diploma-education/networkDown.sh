@@ -8,9 +8,16 @@
 set -ex
 
 # Bring the test network down
-pushd ../test-network
+# Old script
+#pushd ../test-network
+#./network.sh down
+#popd
+
+# Net script bring production network down
+pushd ../production-network
 ./network.sh down
 popd
+
 
 # clean out any old identites in the wallets
 rm -rf javascript/wallet/*
