@@ -1,17 +1,12 @@
 {
-	"name": "first-network",
+	"name": "test-network",
 	"version": "1.0.0",
 	"license": "Apache-2.0",
 	"client": {
 		"tlsEnable": true,
-		"caCredential": {
-			"id": "admin",
-			"password": "adminpw"
-		},
 		"adminCredential": {
-			"id": "exploreradmin2",
-			"password": "exploreradminpw",
-			"affiliation": "org1.department1"
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
 		},
 		"enableAuthentication": true,
 		"organization": "Org1MSP",
@@ -43,31 +38,24 @@
 	"organizations": {
 		"Org1MSP": {
 			"mspid": "Org1MSP",
+			"adminPrivateKey": {
+				"path": "/home/phoenix/hyperledger-fabric-score-core/fabric-core/production-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk"
+			},
 			"peers": ["peer0.org1.example.com"],
-			"certificateAuthorities": ["ca0"]
+			"signedCert": {
+				"path": "/home/phoenix/hyperledger-fabric-score-core/fabric-core/production-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/cert.pem"
+			}
 		}
 	},
 	"peers": {
 		"peer0.org1.example.com": {
 			"tlsCACerts": {
-				"path": "/home/atsushi/dev/hyperledger/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+				"path": "/home/phoenix/hyperledger-fabric-score-core/fabric-core/production-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
 			},
 			"url": "grpcs://localhost:7051",
 			"grpcOptions": {
 				"ssl-target-name-override": "peer0.org1.example.com"
 			}
-		}
-	},
-	"certificateAuthorities": {
-		"ca0": {
-			"url": "https://localhost:7054",
-			"httpOptions": {
-				"verify": false
-			},
-			"tlsCACerts": {
-				"path": "/home/atsushi/dev/hyperledger/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem"
-			},
-			"caName": "ca0-org1"
 		}
 	}
 }
